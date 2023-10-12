@@ -3,6 +3,6 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<bean class="polymorphism.SamsungTV"/>
-	<!-- class 속성만 사용해도 객체가 생성되는지 확인 -->
+	<bean id="tv" class="polymorphism.SamsungTV" init-method="initMethod" destroy-method="destroyMethod" />
+	<!-- init-method 속성과 destroy-method 추가로 설정 -->
 </beans>
