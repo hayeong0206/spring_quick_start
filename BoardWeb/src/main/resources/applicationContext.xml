@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id = "tv" class="polymorphism.SamsungTV"/>
+	<!--  앞에서 작성한 TV 에제를 스프링 기반으로 테스트 하기 위한 등록 -->
+	<!--  bean 엘리먼트를 사용하는데 클래스 하나당 하나의 <bean> 설정이 필요함. -->
+</beans>
