@@ -3,6 +3,8 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<bean id="tv" class="polymorphism.SamsungTV" lazy-init="true" />
-	<!-- init-lazy속성: 해당 bean이 사용되는 시점에 객체 생성 -->
+	<bean id="tv" class="polymorphism.SamsungTV" scope= "singleton" />
+	<!-- scope: 컨테이너가 생성한 bean을 어느 범위에서 사용할 수 있는지 지정 -->
+	<!-- 기본값: singleton: 객체는 메모리에 하나만 생성되어 유지됨  -->
+	<!-- prototype - 해당 bean이 요청될 때마다 새로운 객체를 생성하여 반환 -->
 </beans>
