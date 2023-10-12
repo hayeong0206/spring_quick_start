@@ -3,6 +3,6 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<bean id="tv" class="polymorphism.SamsungTV" init-method="initMethod" destroy-method="destroyMethod" />
-	<!-- init-method 속성과 destroy-method 추가로 설정 -->
+	<bean id="tv" class="polymorphism.SamsungTV" lazy-init="true" />
+	<!-- init-lazy속성: 해당 bean이 사용되는 시점에 객체 생성 -->
 </beans>
