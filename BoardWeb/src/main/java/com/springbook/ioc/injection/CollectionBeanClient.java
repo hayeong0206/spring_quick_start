@@ -1,6 +1,6 @@
 package com.springbook.ioc.injection;
 
-import java.util.Set;
+import java.util.Map;
 
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.GenericXmlApplicationContext;
@@ -11,9 +11,9 @@ public class CollectionBeanClient {
 				new GenericXmlApplicationContext("applicationContext.xml");
 		
 		CollectionBean bean = (CollectionBean) factory.getBean("collectionBean");
-		Set<String> addressList = bean.getAddressList();
-		for (String address : addressList) {
-			System.out.println(address.toString());
+		Map<String, String> addressList = bean.getAddressList();
+		for (String key : addressList.keySet()) {
+			System.out.println(String.format("키 : %s, 값: %s", key, addressList.get(key)));
 		}
 		factory.close();
 	}

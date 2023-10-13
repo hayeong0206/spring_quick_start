@@ -12,14 +12,19 @@
 	<bean id = "collectionBean" 
 		class="com.springbook.ioc.injection.CollectionBean">
 		<property name="addressList">
-			<set value-type="java.lang.String">
-				<value>서울시 강남구 역삼동</value>
-				<value>서울시 성동구 성수동</value>
-				<value>서울시 성동구 성수동</value>
-			</set>
+			<map value-type="java.lang.String">
+				<entry>
+					<key><value>고길동</value></key>
+					<value>서울시 강남구 역삼동</value>
+				</entry>
+				<entry>
+					<key><value>마이콜</value></key>
+					<value>서울시 강서구 화곡동</value>
+				</entry>
+			</map>
 		</property>
 		
-	<!-- set컬렉션은 같은 데이터를 중복하여 저장하지 않기 때문에 같은 주소는 하나만 저장된다.  -->
+	<!-- key: map 객체의 key 값을 설정할 때 사용, value 엘리먼트: Map 객체의 value를 설정할 때 사용  -->
 		
 	</bean>
 </beans>
