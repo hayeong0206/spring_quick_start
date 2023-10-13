@@ -1,9 +1,6 @@
 package polymorphism;
 
-import org.springframework.stereotype.Component;
 
-@Component("tv")
-//클라이언트 요청을 위해 아이디설정
 public class LgTV implements TV {
 	
 	public LgTV() {

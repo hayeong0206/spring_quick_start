@@ -8,6 +8,8 @@
 
 	<context:component-scan base-package="polymorphism"></context:component-scan>
 	
+	<bean id ="tv" class="polymorphism.LgTV"></bean>
+	
 	<!--  base-package에 저장된 속성값이 패키지라면 그 안에 모든 패키지를 스캔 대상에 포함함. -->
 	<!--
 	<bean id="tv" class="polymorphism.SamsungTV" p:speaker-ref="sony" p:price="2700000"></bean>
