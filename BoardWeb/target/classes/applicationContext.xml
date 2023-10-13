@@ -8,4 +8,18 @@
 	
 	<bean id = "sony" class="polymorphism.SonySpeaker"></bean>
 	<bean id = "apple" class="polymorphism.AppleSpeaker"></bean>
+	
+	<bean id = "collectionBean" 
+		class="com.springbook.ioc.injection.CollectionBean">
+		<property name="addressList">
+			<list>
+				<value>서울시 강남구 역삼동</value>
+				<value>서울시 성동구 행당</value>
+			</list>
+		</property>
+		
+	<!-- 두개의 문자열 주소가 저장된 list 객체를 CollectionBean 객체의 setAddressList() 메소드를 호출할 때,
+	     인자롤 전달하여 addressList 멤버변수를 초기화하는 설정 -->
+		
+	</bean>
 </beans>
