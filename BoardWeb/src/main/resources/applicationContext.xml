@@ -12,14 +12,14 @@
 	<bean id = "collectionBean" 
 		class="com.springbook.ioc.injection.CollectionBean">
 		<property name="addressList">
-			<list>
+			<set value-type="java.lang.String">
 				<value>서울시 강남구 역삼동</value>
-				<value>서울시 성동구 행당</value>
-			</list>
+				<value>서울시 성동구 성수동</value>
+				<value>서울시 성동구 성수동</value>
+			</set>
 		</property>
 		
-	<!-- 두개의 문자열 주소가 저장된 list 객체를 CollectionBean 객체의 setAddressList() 메소드를 호출할 때,
-	     인자롤 전달하여 addressList 멤버변수를 초기화하는 설정 -->
+	<!-- set컬렉션은 같은 데이터를 중복하여 저장하지 않기 때문에 같은 주소는 하나만 저장된다.  -->
 		
 	</bean>
 </beans>
