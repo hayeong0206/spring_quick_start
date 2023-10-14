@@ -44,6 +44,23 @@ public class BoardDAO {
 		}
 	}
 	
+	//글 수정
+	public void updateBoard(BoardVO vo) {
+		System.out.println("===> JDBC로 updateBaord() 기능 처리");
+		try {
+			conn = JDBCUtil.getConnection();
+			stmt = conn.prepareStatement(BOARD_UPDATE);
+			stmt.setString(1, vo.getTitle());
+			stmt.setString(2, vo.getWriter());
+			stmt.setString(3, vo.getContent());
+			stmt.executeUpdate();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			JDBCUtil.close(stmt, conn);
+		}
+	}
+	
 	//글 삭제
 	public void deleteBoard(BoardVO vo) {
 		System.out.println("===>JDBC로 deleteBoard() 기능 처리");
