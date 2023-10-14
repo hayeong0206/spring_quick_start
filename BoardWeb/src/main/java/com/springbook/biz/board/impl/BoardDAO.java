@@ -106,7 +106,7 @@ public class BoardDAO {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-		} finnally{
+		} finally{
 			JDBCUtil.close(rs, stmt, conn);
 		}
 		return boardList;
