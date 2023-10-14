@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public class JDBCUtil {
-	public static Connection getConnetcionn() {
+	public static Connection getConnection() {
 		try {
 			Class.forName("org.h2.Driver");
 			return DriverManager.getConnection("jdbc:h2:tcp://localhost/~/test", "sa", "");
@@ -38,7 +38,7 @@ public class JDBCUtil {
 		}
 	}
 	
-	public static void clse(ResultSet rs, PreparedStatement stmt, Connection conn) {
+	public static void close(ResultSet rs, PreparedStatement stmt, Connection conn) {
 		if(rs != null) {
 			try {
 				if(!rs.isClosed()) rs.close();
