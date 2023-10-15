@@ -7,7 +7,7 @@ public class UserServiceImpl implements UserService{
 	private UserDAO userDAO;
 	//멤버 변수로 UserDAO 객체 선언 -> DB 연동 처리
 	
-	public void setUserDAAO(UserDAO userDAO) {
+	public void setUserDAO(UserDAO userDAO) {
 		this.userDAO = userDAO;
 	}
 	
