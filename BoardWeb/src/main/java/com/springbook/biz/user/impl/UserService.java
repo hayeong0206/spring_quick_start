@@ -1,4 +1,4 @@
-package com.springbook.biz.user;
+package com.springbook.biz.user.impl;
 
 public interface UserService {
 

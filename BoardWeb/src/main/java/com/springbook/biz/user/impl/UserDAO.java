@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 import com.springbook.biz.common.JDBCUtil;
+import com.springbook.biz.user.UserService;
 import com.springbook.biz.user.UserVO;
 
 //DAO(Data Access Object)
