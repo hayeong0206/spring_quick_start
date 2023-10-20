@@ -9,7 +9,7 @@ import com.springbook.biz.board.BoardService;
 import com.springbook.biz.board.BoardVO;
 
 @Service("boardService")
-public class BoardServicelmpl implements BoardService {
+public class BoardServiceImpl implements BoardService {
 	@Autowired
 	private BoardDAO boardDAO;
 
