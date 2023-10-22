@@ -11,13 +11,13 @@
 	<context:component-scan base-package="com.springbook.biz">
 	</context:component-scan>
 
-	<bean id="afterThrowing" class="com.springbook.biz.common.AfterThrowingAdvice"></bean>
+	<bean id="around" class="com.springbook.biz.common.AroundAdvice"></bean>
 	
 	<aop:config>
 		<aop:pointcut id="allPointcut" expression="execution(* com.springbook.biz..*Impl.*(..))"/>
 		
-		<aop:aspect ref="afterThrowing">
-			<aop:after-throwing pointcut-ref="allPointcut" method="exceptionLog" throwing="exceptObj"/>
+		<aop:aspect ref="around">
+			<aop:around pointcut-ref="allPointcut" method="aroundLog" />
 			<!-- 비즈니스 메소드가 리턴한 결괏값을 returnObj라는 바인드 변수에 마인드 하라는 설 -->
 		</aop:aspect>
 	</aop:config>
