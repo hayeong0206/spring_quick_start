@@ -17,7 +17,8 @@
 		<aop:pointcut id="allPointcut" expression="execution(* com.springbook.biz..*Impl.*(..))"/>
 		
 		<aop:aspect ref="around">
-			<aop:around pointcut-ref="allPointcut" method="aroundLog"/>
+			<aop:around pointcut-ref="allPointcut" method="aroundLog" />
+			<!-- 비즈니스 메소드가 리턴한 결괏값을 returnObj라는 바인드 변수에 마인드 하라는 설 -->
 		</aop:aspect>
 	</aop:config>
 </beans>
