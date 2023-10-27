@@ -14,6 +14,9 @@
 	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
 	
 	<!-- DataSource 설정 -->
+	<context:property-placeholder location="classpath:config/database.properties" />
+	<!-- 프로퍼티 파일 사용을 위해 설정  -->
+	
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
 		<property name="driverClassName" value="${jdbc.driver}" />
 		<property name="url" value="${jdbc.url}" />
