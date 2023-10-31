@@ -27,6 +27,7 @@ public class UserDAO {
 		try {
 			System.out.println("===> JDBC로 getUser 기능 처리");
 			conn = JDBCUtil.getConnection();
+			System.out.println("==getConnection 완"+ conn);
 			stmt = conn.prepareStatement(USER_GET);
 			stmt.setString(1, vo.getId());
 			stmt.setString(2, vo.getPassword());
@@ -39,6 +40,7 @@ public class UserDAO {
 				user.setRole(rs.getString("ROLE"));
 			}
 		}catch (Exception e){
+			System.out.println("오류발생");
 			e.printStackTrace();
 		}finally {
 			JDBCUtil.close(rs, stmt, conn);
