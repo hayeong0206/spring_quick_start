@@ -39,6 +39,7 @@ public class UserDAO {
 				user.setRole(rs.getString("ROLE"));
 			}
 		}catch (Exception e){
+			System.out.println("오류발생");
 			e.printStackTrace();
 		}finally {
 			JDBCUtil.close(rs, stmt, conn);
