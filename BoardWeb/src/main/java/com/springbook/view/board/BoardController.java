@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.springbook.biz.board.BoardService;
 import com.springbook.biz.board.BoardVO;
-import com.springbook.biz.board.impl.BoardDAO;
 
 @Controller
 @SessionAttributes("board")
@@ -57,11 +56,16 @@ public class BoardController {
 		return conditionMap;
 	}
 	
-	//글 목록 조회
+	//글 목록 검색
 	@RequestMapping("/getBoardList.do")
-	public String handleRequest(BoardVO vo, Model model) {
-		model.addAttribute("boardList", boardService.getBoardList(vo)); //Model 정보 저장
-		return "getBoardList.jsp";
+	public String getBoardList(BoardVO vo, Model model) {
+		//Null Check
+		if(vo.getSearchCondition() == null) vo.setSearchCondition("TITLE");
+		if(vo.getSearchKeyword()== null) vo.setSearchKeyword("");
+		
+		//Model 정보 저장
+		model.addAttribute("boardList", boardService.getBoardList(vo));
+		return "getBoardList.jsp"; //View 이름 리턴
 	}
 
 }
