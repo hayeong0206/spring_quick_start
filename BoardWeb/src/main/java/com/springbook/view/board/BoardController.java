@@ -16,12 +16,23 @@ import com.springbook.biz.board.BoardVO;
 import java.io.File;
 import java.io.IOException;
 import org.springframework.web.multipart.MultipartFile;
+import java.util.List;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @SessionAttributes("board")
 public class BoardController {
 	@Autowired
 	private BoardService boardService;
+	
+	@RequestMapping("/dataTransform.do")
+	@ResponseBody
+	public List<BoardVO> dataTransform(BoardVO vo){
+		vo.setSearchCondition("TITLE");
+		vo.setSearchKeyword("");
+		List<BoardVO> boardList = boardService.getBoardList(vo);
+		return boardList;
+	}
 	
 	//글 등록
 	@RequestMapping(value="/insertBoard.do")
