@@ -56,13 +56,6 @@ public class BoardController {
 		return conditionMap;
 	}
 	
-	//글 목록 조회
-	@RequestMapping("/getBoardList.do")
-	public String handleRequest(BoardVO vo, Model model) {
-		model.addAttribute("boardList", boardService.getBoardList(vo)); //Model 정보 저장
-		return "getBoardList.jsp";
-	}
-	
 	//글 목록 검색
 	@RequestMapping("/getBoardList.do")
 	public String getBoardList(BoardVO vo, Model model) {
