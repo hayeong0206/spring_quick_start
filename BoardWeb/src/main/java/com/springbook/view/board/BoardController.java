@@ -13,6 +13,10 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import com.springbook.biz.board.BoardService;
 import com.springbook.biz.board.BoardVO;
 
+import java.io.File;
+import java.io.IOException;
+import org.springframework.web.multipart.MultipartFile;
+
 @Controller
 @SessionAttributes("board")
 public class BoardController {
@@ -21,7 +25,13 @@ public class BoardController {
 	
 	//글 등록
 	@RequestMapping(value="/insertBoard.do")
-	public String insertBoard(BoardVO vo) {
+	public String insertBoard(BoardVO vo) throws IOException {
+		//파일 업로드 처리 
+		MultipartFile uploadFile = vo.getUploadFile();
+		if(!uploadFile.isEmpty()) {
+			String fileName = uploadFile.getOriginalFilename();
+			uploadFile.transferTo(new File("/home/lee" + fileName));
+		}
 		boardService.insertBoard(vo);
 		return "getBoardList.do";
 	}
