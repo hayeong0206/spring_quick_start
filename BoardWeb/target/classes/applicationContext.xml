@@ -47,4 +47,20 @@
 		<aop:advisor pointcut-ref="txPointcut" advice-ref="txAdvice" />
 	</aop:config>
 	<!-- txPointcut으로 지정한 메소드가 호출될 때, txAdvice로 등록한 어드바이스가 동작하여 트랜잭션을 관리하도록 설정 -->
+	
+	<!-- 스프링 연동 설정 -->
+	<bean id="sessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"/>
+		<property name="configLocation" value="Classpath:sql-map-config.xml" />
+	</bean>
+	
+	<!-- Spring과 Mybatis 연동 설정 -->
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="configLocation" value="classpath:sql-map-config.xml"></property>
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+	
+	<bean class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg ref="sqlSession"></constructor-arg>
+	</bean>
 </beans>
