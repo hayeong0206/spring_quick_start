@@ -31,7 +31,7 @@
 	</bean>
 	
 	<!-- Transaction 설정 -->
-	<bean id ="txManager" class = "org.springframework.jdbc.datasource.DataSourceTransactionManager">
+	<bean id ="txManager" class = "org.springframework.orm.jpa.JpaTransactionManager">
 		<property name="dataSource" ref="dataSource"></property>
 	</bean>
 	
@@ -62,5 +62,13 @@
 	
 	<bean class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg ref="sqlSession"></constructor-arg>
+	</bean>
+	
+	<!-- Spring과 JPA 연동 설정 -->
+	<bean id="jpaVendorAdapter" class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"></bean>
+	
+	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="dataSource" ref="dataSource"></property>
+		<property name="jpaVendorAdapter" ref="jpaVendorAdapter"></property>
 	</bean>
 </beans>
